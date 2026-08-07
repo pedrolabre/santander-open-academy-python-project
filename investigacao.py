@@ -137,10 +137,68 @@ def exibir_conclusao(operador, conclusao):
     print("O relatório foi atualizado.")
     print()
 
+def exibir_desfecho(operador, conclusao):
+    """Exibe o desfecho correspondente à conclusão registrada."""
+    input("Pressione Enter para finalizar o relatório...")
+    print()
+
+    print("=" * 50)
+    print("                  RESULTADO")
+    print("=" * 50)
+    print()
+
+    if conclusao == "DESAPARECIMENTO COM CAUSA INDETERMINADA":
+        print("O Arquivo 017-A foi encerrado.")
+        print()
+        print("STATUS: ARQUIVADO")
+        print()
+        print("A causa do desaparecimento permanece desconhecida.")
+        print("Nenhuma nova investigação será iniciada.")
+        print()
+        print("Encerrando sessão...")
+        print()
+        print("NOVO REGISTRO ENCONTRADO.")
+        print()
+        print(f"OPERADOR ASSOCIADO: {operador}")
+        print("STATUS: PENDENTE")
+
+    elif conclusao == "POSSÍVEL ENVOLVIMENTO DE UMA SEGUNDA PESSOA":
+        print("O Arquivo 017-A foi encaminhado para nova análise.")
+        print()
+        print("STATUS: INVESTIGAÇÃO AMPLIADA")
+        print()
+        print("O sistema iniciou uma comparação com a imagem")
+        print("da segunda pessoa registrada às 22:41.")
+        print()
+        print("ANÁLISE CONCLUÍDA.")
+        print()
+        print("POSSÍVEL CORRESPONDÊNCIA ENCONTRADA:")
+        print(f"OPERADOR {operador}")
+
+    else:
+        print("O Arquivo 017-A permanecerá aberto.")
+        print()
+        print("STATUS: EM INVESTIGAÇÃO")
+        print()
+        print("Os registros foram mantidos para análise futura.")
+        print()
+        print("Verificando novas ocorrências...")
+        print()
+        print("1 NOVO REGISTRO ENCONTRADO.")
+        print()
+        print("ORIGEM: SETOR RESTRITO DE ARQUIVOS")
+        print(f"IDENTIFICAÇÃO ASSOCIADA: {operador}")
+
+    print()
+    print("-" * 50)
+    print("FIM DA SESSÃO")
+    print("-" * 50)
+
 def iniciar_investigacao(operador):
-    """Inicia a apresentação, revisão e conclusão do caso."""
+    """Inicia a apresentação, revisão, conclusão e desfecho do caso."""
     exibir_relatorio(operador)
     revisar_registros()
 
     conclusao = solicitar_conclusao()
     exibir_conclusao(operador, conclusao)
+    exibir_desfecho(operador, conclusao)
