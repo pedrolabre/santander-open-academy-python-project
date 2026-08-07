@@ -120,6 +120,13 @@ def revisar_registros(registros):
         print(registro["descricao"])
         print()
 
+        observacao = registro.get("observacao")
+
+        if observacao:
+            print("OBSERVAÇÃO:")
+            print(observacao)
+            print()
+
         input("Pressione Enter para concluir este registro...")
         print()
 
@@ -150,6 +157,33 @@ registros = [
             "A escala confirma que o funcionário ID 017\n"
             "era o único funcionário designado para o turno.\n\n"
             "Nenhuma outra pessoa deveria estar na unidade."
+        )
+    },
+    {
+        "codigo": "003-A",
+        "tipo": "CÂMERA DE SEGURANÇA",
+        "horario": "22:41",
+        "descricao": (
+            "A câmera do corredor principal registrou\n"
+            "o funcionário ID 017 seguindo para o setor de arquivos.\n\n"
+            "Uma segunda pessoa aparece alguns metros atrás dele."
+        ),
+        "observacao": (
+            "A identidade da segunda pessoa não pôde ser confirmada."
+        )
+    },
+    {
+        "codigo": "004-A",
+        "tipo": "CONTROLE DE ACESSO",
+        "horario": "22:43",
+        "descricao": (
+            "Os registros de entrada foram verificados após\n"
+            "a identificação da segunda pessoa nas câmeras.\n\n"
+            "Nenhum outro acesso foi registrado naquela noite."
+        ),
+        "observacao": (
+            "O funcionário ID 017 continua sendo a única pessoa\n"
+            "com entrada registrada na unidade."
         )
     }
 ]
