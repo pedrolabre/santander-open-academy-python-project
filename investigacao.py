@@ -106,7 +106,7 @@ def solicitar_conclusao():
     opcao = ""
 
     while opcao not in ["1", "2", "3"]:
-        opcao = input("> ")
+        opcao = input("> ").strip()
         print()
 
         if opcao not in ["1", "2", "3"]:

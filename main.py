@@ -11,11 +11,11 @@ def exibir_cabecalho():
 
 def identificar_operador():
     """Solicita e valida a identificação do operador."""
-    operador = input("Identificação do operador: ")
+    operador = input("Identificação do operador: ").strip()
 
     while operador == "":
         print("Identificação obrigatória.")
-        operador = input("Identificação do operador: ")
+        operador = input("Identificação do operador: ").strip()
 
     return operador
 
@@ -48,7 +48,7 @@ def solicitar_abertura():
         print("[2] Encerrar sessão")
         print()
 
-        opcao = input("> ")
+        opcao = input("> ").strip()
         print()
 
         if opcao == "2":
