@@ -120,6 +120,16 @@ def revisar_registros(registros):
         print(registro["descricao"])
         print()
 
+        detalhes = registro.get("detalhes")
+
+        if detalhes:
+            print("DETALHES:")
+
+            for detalhe in detalhes:
+                print(f"- {detalhe}")
+
+            print()
+
         observacao = registro.get("observacao")
 
         if observacao:
@@ -184,6 +194,36 @@ registros = [
         "observacao": (
             "O funcionário ID 017 continua sendo a única pessoa\n"
             "com entrada registrada na unidade."
+        )
+    },
+    {
+        "codigo": "005-A",
+        "tipo": "REGISTRO DE TELEFONIA",
+        "horario": "22:48",
+        "descricao": (
+            "O funcionário ID 017 utilizou o telefone interno\n"
+            "para ligar para o supervisor de plantão."
+        ),
+        "detalhes": [
+            "Origem: ramal do setor de arquivos",
+            "Destino: supervisor de plantão",
+            "Status: chamada atendida"
+        ]
+    },
+    {
+        "codigo": "006-A",
+        "tipo": "REGISTRO DE TELEFONIA",
+        "horario": "22:49",
+        "descricao": (
+            "A ligação foi encerrada após poucos segundos.\n\n"
+            "Não houve outra tentativa de contato."
+        ),
+        "detalhes": [
+            "Duração: 12 segundos",
+            "Encerramento: ramal do funcionário ID 017"
+        ],
+        "observacao": (
+            "O conteúdo da ligação não foi registrado."
         )
     }
 ]
