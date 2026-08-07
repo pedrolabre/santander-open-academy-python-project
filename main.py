@@ -59,7 +59,7 @@ def solicitar_abertura():
             print()
 
 
-def exibir_relatorio(operador):
+def exibir_relatorio(operador, quantidade_registros):
     """Exibe as informações iniciais do caso de desaparecimento."""
     print("=" * 50)
     print("                  ARQUIVO 017-A")
@@ -100,11 +100,59 @@ def exibir_relatorio(operador):
     print()
     print("-" * 50)
     print()
-    print("REGISTROS DISPONÍVEIS: 0/16")
+    print(f"REGISTROS DISPONÍVEIS: {quantidade_registros}/16")
     print()
-    print("Os registros relacionados ainda não foram carregados.")
+
+
+def revisar_registros(registros):
+    """Apresenta os registros disponíveis em ordem."""
+    input("Pressione Enter para iniciar a revisão...")
+    print()
+
+    for registro in registros:
+        print("=" * 50)
+        print(f"                  ARQUIVO {registro['codigo']}")
+        print("=" * 50)
+        print()
+        print(f"TIPO: {registro['tipo']}")
+        print(f"HORÁRIO: {registro['horario']}")
+        print()
+        print(registro["descricao"])
+        print()
+
+        input("Pressione Enter para concluir este registro...")
+        print()
+
+    print("-" * 50)
+    print(f"REGISTROS REVISADOS: {len(registros)}/16")
+    print()
+    print("Os demais registros ainda não estão disponíveis.")
     print()
     input("Pressione Enter para encerrar a consulta...")
+
+
+registros = [
+    {
+        "codigo": "001-A",
+        "tipo": "CONTROLE DE ACESSO",
+        "horario": "22:04",
+        "descricao": (
+            "O crachá do funcionário ID 017 foi registrado\n"
+            "na entrada principal da unidade.\n\n"
+            "Não houve nenhuma irregularidade no acesso."
+        )
+    },
+    {
+        "codigo": "002-A",
+        "tipo": "ESCALA DE TRABALHO",
+        "horario": "22:10",
+        "descricao": (
+            "A escala confirma que o funcionário ID 017\n"
+            "era o único funcionário designado para o turno.\n\n"
+            "Nenhuma outra pessoa deveria estar na unidade."
+        )
+    }
+]
 
 
 exibir_cabecalho()
@@ -113,4 +161,5 @@ operador = identificar_operador()
 
 iniciar_sessao(operador)
 solicitar_abertura()
-exibir_relatorio(operador)
+exibir_relatorio(operador, len(registros))
+revisar_registros(registros)
