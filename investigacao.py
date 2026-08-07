@@ -88,8 +88,59 @@ def revisar_registros():
     print("Todos os registros relacionados foram revisados.")
     print()
 
+def solicitar_conclusao():
+    """Solicita ao operador uma conclusão para o Arquivo 017-A."""
+    print("=" * 50)
+    print("              CONCLUSÃO DO ARQUIVO 017-A")
+    print("=" * 50)
+    print()
+    print("Todos os registros foram analisados.")
+    print()
+    print("Selecione a conclusão que será registrada:")
+    print()
+    print("[1] Desaparecimento com causa indeterminada")
+    print("[2] Possível envolvimento de uma segunda pessoa")
+    print("[3] Manter a investigação aberta")
+    print()
+
+    opcao = ""
+
+    while opcao not in ["1", "2", "3"]:
+        opcao = input("> ")
+        print()
+
+        if opcao not in ["1", "2", "3"]:
+            print("Opção inválida.")
+            print()
+
+    if opcao == "1":
+        conclusao = "DESAPARECIMENTO COM CAUSA INDETERMINADA"
+
+    elif opcao == "2":
+        conclusao = "POSSÍVEL ENVOLVIMENTO DE UMA SEGUNDA PESSOA"
+
+    else:
+        conclusao = "INVESTIGAÇÃO MANTIDA EM ABERTO"
+
+    return conclusao
+
+def exibir_conclusao(operador, conclusao):
+    """Exibe a conclusão escolhida pelo operador."""
+    print("-" * 50)
+    print("CONCLUSÃO REGISTRADA")
+    print("-" * 50)
+    print()
+    print(f"OPERADOR: {operador}")
+    print(f"ARQUIVO: 017-A")
+    print(f"CONCLUSÃO: {conclusao}")
+    print()
+    print("O relatório foi atualizado.")
+    print()
 
 def iniciar_investigacao(operador):
-    """Inicia a apresentação e a revisão do caso."""
+    """Inicia a apresentação, revisão e conclusão do caso."""
     exibir_relatorio(operador)
     revisar_registros()
+
+    conclusao = solicitar_conclusao()
+    exibir_conclusao(operador, conclusao)
